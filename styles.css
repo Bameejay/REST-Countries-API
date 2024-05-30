@@ -1,0 +1,320 @@
+/* Light Theme */
+
+:root {
+    --header-bg: #ffffff;
+    --header-color: #000000;
+    --button-bg: #000000;
+    --button-color: #000000;
+    --card-bg: #f9f9f9;
+    --card-color: #000000;
+    --card-border: #e0e0e0;
+    --background-color: hsl(0, 0%, 98%);
+    --text-color: hsl(200, 15%, 8%);
+    --inputlight-color: hsl(0, 0%, 98%);
+    --border-radius: 5px;
+}
+
+
+/* Dark Theme */
+
+body.dark {
+    --header-bg: #2c3e50;
+    --header-color: #ecf0f1;
+    --button-bg: #ecf0f1;
+    --button-color: #ecf0f1;
+    --card-bg: #34495e;
+    --card-color: #ecf0f1;
+    --card-border: #7f8c8d;
+    --background-color: hsl(207, 26%, 17%);
+    --text-color: hsl(0, 0%, 100%);
+    --inputbg-color: hsl(207, 26%, 17%);
+    --input-focus: hsl(0, 0%, 100%);
+}
+
+body {
+    font-family: "Nunito Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--header-bg);
+    color: var(--header-color);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2)
+}
+
+h1 {
+    margin: 0;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background: none;
+    color: var(--button-color);
+    font-size: 24px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#region-filter {
+    width: 15%;
+    padding: 14px;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+}
+
+.region-filter option {
+    color: red;
+}
+
+body.dark #region-filter {
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#region-filter:focus {
+    outline: none;
+}
+
+#region-filter option {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    padding-top: 20px;
+}
+
+body.dark select#region-filter option {
+    background-color: var(--card-bg);
+}
+
+.region-filter option {
+    color: red;
+    border-radius: 12px;
+}
+
+main {
+    padding: 20px 10%;
+}
+
+.search-container {
+    position: relative;
+    width: 25%;
+    border-radius: var(--border-radius);
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: var(--text-color);
+    transition: opacity 0.2s;
+}
+
+#search {
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 50px;
+    box-sizing: border-box;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    border-style: none;
+}
+
+body.dark #search {
+    background-color: var(--card-bg);
+}
+
+#search::placeholder {
+    color: var(--text-color);
+}
+
+#search:focus {
+    color: var(--text-color);
+}
+
+.search-input:focus {
+    outline: none;
+    /* box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); */
+}
+
+
+/* Card style */
+
+.country-element {
+    max-width: 20%;
+    background-color: #fff;
+    flex: 1;
+    /* Allow cards to grow and shrink */
+    min-width: calc(25% - 24px);
+    /* Ensure cards take up roughly a quarter of the row minus the gap */
+    max-width: calc(25% - 24px);
+    margin: 20px 0;
+    border-radius: 6px;
+}
+
+body.dark .country-element {
+    background-color: var(--card-bg);
+}
+
+.country-element img {
+    max-width: 100%;
+    height: 50%;
+    background-color: var(--background-color);
+    border-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#country-list {
+    /* display: flex;
+    flex-wrap: wrap;
+    gap: 24px; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* Distribute cards evenly with space between */
+    gap: 24px;
+    /* Adjust the gap between cards as needed */
+    padding: 10px auto;
+}
+
+.country-flag {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.country:hover {
+    transform: scale(1.05);
+}
+
+.country h2,
+.country p {
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 0 10px;
+    /* align-items: start; */
+}
+
+
+/* Show display style */
+
+.country-detail {
+    padding: 10px;
+    /* border: 1px solid var(--card-border); */
+    /* background-color: var(--card-bg); */
+    color: var(--card-color);
+    /* border-radius: 5px; */
+    /* max-width: 600px; */
+    /* margin: 20px auto; */
+    /* text-align: center; */
+}
+
+.country-detail {
+    padding: 0 10%;
+    gap: 30px;
+}
+
+.country-detail img {
+    /* max-width: 100%; */
+    border-radius: 5px;
+    /* margin-bottom: 20px; */
+    display: flex;
+    align-self: start;
+    width: 100%;
+    height: 100%;
+}
+
+.country-detail button {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.country-detail button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#theme-switcher {
+    font-size: 12px;
+    gap: 10px;
+}
+
+#theme-switcher i {
+    margin-right: 8px;
+}
+
+
+/* show display style */
+
+.country-detail button i {
+    margin-right: 8px;
+}
+
+.country-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-height: 100vh;
+}
+
+.left-column,
+.right-column {
+    flex: 1;
+    /* padding: 10px; */
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    gap: 20px;
+    padding: 0;
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+}
+
+#back {
+    display: inline-block;
+    margin-bottom: 10px;
+    align-self: flex-start;
+    font-size: 14px;
+    color: var(--button-color);
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 8px 20px;
+    /* border: 1px solid red; */
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark #back {
+    background-color: var(--card-bg);
+}

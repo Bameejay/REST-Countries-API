@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST Countries API with Theme Switcher</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Where in the world is it?</h1>
+        <button id="theme-switcher"><i class="fas fa-adjust"></i>Light mode</button>
+        <!-- <button id="theme-switcher"><img src="./assets/images/theme_switcher.png" alt=""></button> -->
+    </header>
+    <main>
+        <div class="controls">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search" class="search-input" placeholder="Search for a country...">
+            </div>
+            <select id="region-filter" class=".region-filter">
+                <option value="Africa">Africa</option>
+                <option value="Americas" >Americas</option>
+                <option value="Asia" >Asia</option>
+                <option value="Europe" >Europe</option>
+                <option value="Oceania" >Oceania</option>
+            </select>
+        </div>
+        <div id="country-list"></div>
+    </main>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
