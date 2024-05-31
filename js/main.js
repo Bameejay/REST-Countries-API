@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', () => {
             const themeSwitcher = document.getElementById('theme-switcher');
             const countryList = document.getElementById('country-list');

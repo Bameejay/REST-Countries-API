@@ -343,3 +343,110 @@ body.dark #back {
     justify-content: space-between;
     align-items: center;
 }
+
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 1440px) {
+    header,
+    main {
+        padding: 20px 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-container,
+    #region-filter {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    #country-list {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    .country-detail {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .country-detail {
+        padding: 10px;
+    }
+    .right-column h2 {
+        font-size: 1.5em;
+    }
+    .right-column p {
+        font-size: 14px;
+    }
+    .country-element {
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 1440px) {
+    header,
+    main {
+        padding: 20px 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-container,
+    #region-filter {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    #country-list {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+        /* Add padding around the cards */
+    }
+    .country-element {
+        margin: 10px 0;
+        /* Add margin between cards */
+    }
+    .country-detail {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .country-detail {
+        padding: 10px;
+    }
+    .right-column h2 {
+        font-size: 1.5em;
+    }
+    .right-column p {
+        font-size: 14px;
+    }
+    #country-list {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+        /* Add padding around the cards */
+    }
+    .country-element {
+        margin: 10px 0;
+        /* Add margin between cards */
+    }
+}
