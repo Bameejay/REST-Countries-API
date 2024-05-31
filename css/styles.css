@@ -279,6 +279,8 @@ body.dark .country-element {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    gap: 80px;
     max-height: 100vh;
 }
 
@@ -298,8 +300,15 @@ body.dark .country-element {
 }
 
 .right-column {
-    /* display: flex; */
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+.right-column h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 #back {
@@ -317,4 +326,26 @@ body.dark .country-element {
 
 body.dark #back {
     background-color: var(--card-bg);
+}
+
+.border-country {
+    display: inline-block;
+    padding: 3px 24px;
+    border: 5px solid var(--button-color);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--button-color);
+    border: 1px solid #00796b;
+    font-weight: bold;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.right-column .label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.right-column .content {
+    font-size: 14px;
 }

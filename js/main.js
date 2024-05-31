@@ -1,94 +1,96 @@
 // script.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    const themeSwitcher = document.getElementById('theme-switcher');
-    const countryList = document.getElementById('country-list');
-    const searchInput = document.getElementById('search');
-    const regionFilter = document.getElementById('region-filter');
-    const searchIcon = document.querySelector('.search-icon');
+            const themeSwitcher = document.getElementById('theme-switcher');
+            const countryList = document.getElementById('country-list');
+            const searchInput = document.getElementById('search');
+            const regionFilter = document.getElementById('region-filter');
+            const searchIcon = document.querySelector('.search-icon');
 
 
-    let countries = [];
+            let countries = [];
 
-    // Fetch countries data from REST Countries API
-    console.log('Fetching data from API...');
-    fetch('https://restcountries.com/v3.1/all')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Data fetched successfully:', data);
-            countries = data;
-            displayCountries(countries);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-            countryList.innerHTML = '<p>Failed to fetch country data. Please try again later.</p>';
-        });
+            // Fetch countries data from REST Countries API
+            console.log('Fetching data from API...');
+            fetch('https://restcountries.com/v3.1/all')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Data fetched successfully:', data);
+                    countries = data;
+                    displayCountries(countries);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    countryList.innerHTML = '<p>Failed to fetch country data. Please try again later.</p>';
+                });
 
-    function displayCountries(countries) {
-        console.log('Displaying countries:', countries);
-        countryList.innerHTML = '';
-        countries.forEach(country => {
-            const countryElement = document.createElement('div');
-            countryElement.classList.add('country');
-            countryElement.classList.add('country-element')
-                // countryElement.style.backgroundImage = `url(${country.flags.png})`;
-            countryElement.innerHTML = `
+            function displayCountries(countries) {
+                console.log('Displaying countries:', countries);
+                countryList.innerHTML = '';
+                countries.forEach(country => {
+                    const countryElement = document.createElement('div');
+                    countryElement.classList.add('country');
+                    countryElement.classList.add('country-element')
+                        // countryElement.style.backgroundImage = `url(${country.flags.png})`;
+                    countryElement.innerHTML = `
             <img src="${country.flags.png}" alt="Flag of ${country.name.common}" class="country-flag">
                 <h2>${country.name.common}</h2>
                 <p>Population: ${country.population.toLocaleString()}</p>
                 <p>Region: ${country.region}</p>
                 <p>Capital: ${country.capital ? country.capital[0] : 'N/A'}</p>
             `;
-            countryElement.addEventListener('click', () => {
-                showCountryDetails(country);
-            });
-            countryList.appendChild(countryElement);
-        });
-    }
+                    countryElement.addEventListener('click', () => {
+                        showCountryDetails(country);
+                    });
+                    countryList.appendChild(countryElement);
+                });
+            }
 
-    function showCountryDetails(country) {
-        const countryDetail = document.createElement('div');
-        // countryDetail.classList.add('country-detail', 'flex-column');
-        // countryDetail.innerHTML = `
-        //     <h2>${country.name.common}</h2>
-        //     <img src="${country.flags.png}" alt="Flag of ${country.name.common}">
-        //     <p>Population: ${country.population.toLocaleString()}</p>
-        //     <p>Region: ${country.region}</p>
-        //     <p>Subregion: ${country.subregion}</p>
-        //     <p>Capital: ${country.capital ? country.capital[0] : 'N/A'}</p>
-        //     <p>Border Countries: ${country.borders ? country.borders.join(', ') : 'None'}</p>
-        //     <button id="back"><i class="fas fa-arrow-left"></i>Back</button>
-        // `;
-
-        countryDetail.classList.add('country-detail', 'flex-row');
-        countryDetail.innerHTML = `
-            <div class="left-column">
-            <button id="back"><i class="fas fa-arrow-left"></i>Back</button>
-                <img src="${country.flags.png}" alt="Flag of ${country.name.common}">
-            </div>
-            <div class="right-column">
-                <h2>${country.name.common}</h2>
-                <p>Population: ${country.population.toLocaleString()}</p>
-                <p>Region: ${country.region}</p>
-                <p>Subregion: ${country.subregion}</p>
-                <p>Capital: ${country.capital ? country.capital[0] : 'N/A'}</p>
-                <p>Border Countries: ${country.borders ? country.borders.join(', ') : 'None'}</p>
-            </div>
-        `;
-
-
-        countryDetail.querySelector('#back').addEventListener('click', () => {
-            countryList.style.display = 'flex';
-            countryDetail.remove();
-        });
-        countryList.style.display = 'none';
-        document.body.appendChild(countryDetail);
-    }
+            function showCountryDetails(country) {
+                const countryDetail = document.createElement('div');
+                countryDetail.classList.add('country-detail', 'flex-row');
+                countryDetail.innerHTML = `
+                    <div class="left-column">
+                        <button id="back"><i class="fas fa-arrow-left"></i>Back</button>
+                        <img src="${country.flags.png}" alt="Flag of ${country.name.common}">
+                    </div>
+                    <div class="right-column">
+                        <h2>${country.name.common}</h2>
+                        <p><span class="label">Population:</span> <span class="content">${country.population.toLocaleString()}</span></p>
+                        <p><span class="label">Region:</span> <span class="content">${country.region}</span></p>
+                        <p><span class="label">Subregion:</span> <span class="content">${country.subregion}</span></p>
+                        <p><span class="label">Capital:</span> <span class="content">${country.capital ? country.capital[0] : 'N/A'}</span></p>
+                        <p><span class="label">Border Countries:</span> ${
+                            country.borders
+                                ? country.borders.map(border => `<span class="border-country">${border}</span>`).join(' ')
+                                : 'None'
+                        }</p>
+                    </div>
+                `;
+            
+                // Hide elements when showing country details
+                countryList.style.display = 'none';
+                searchInput.style.display = 'none';
+                regionFilter.style.display = 'none';
+                searchIcon.style.display = 'none';
+            
+                // Show elements when back button is clicked
+                countryDetail.querySelector('#back').addEventListener('click', () => {
+                    countryList.style.display = 'flex';
+                    searchInput.style.display = 'block';
+                    regionFilter.style.display = 'block';
+                    searchIcon.style.display = 'block';
+                    countryDetail.remove();
+                });
+            
+                document.body.appendChild(countryDetail);
+            }
+            
 
     searchInput.addEventListener('input', () => {
         const searchText = searchInput.value.toLowerCase();
