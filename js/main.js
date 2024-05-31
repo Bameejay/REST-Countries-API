@@ -54,22 +54,32 @@ document.addEventListener('DOMContentLoaded', () => {
             function showCountryDetails(country) {
                 const countryDetail = document.createElement('div');
                 countryDetail.classList.add('country-detail', 'flex-row');
+                const currencyName = country.currencies ? country.currencies[Object.keys(country.currencies)[0]].name : 'N/A';
+                const countryLanguage = country.languages ? country.languages[Object.keys(country.languages)[0]] : 'N/A';
                 countryDetail.innerHTML = `
                     <div class="left-column">
                         <button id="back"><i class="fas fa-arrow-left"></i>Back</button>
                         <img src="${country.flags.png}" alt="Flag of ${country.name.common}">
                     </div>
+                    <div class="right-column-container">
                     <div class="right-column">
                         <h2>${country.name.common}</h2>
+                        <p><span class="label">Native Name:</span> <span class="content">${country.name.official}</span></p>
                         <p><span class="label">Population:</span> <span class="content">${country.population.toLocaleString()}</span></p>
                         <p><span class="label">Region:</span> <span class="content">${country.region}</span></p>
                         <p><span class="label">Subregion:</span> <span class="content">${country.subregion}</span></p>
                         <p><span class="label">Capital:</span> <span class="content">${country.capital ? country.capital[0] : 'N/A'}</span></p>
-                        <p><span class="label">Border Countries:</span> ${
+                        <div class="border-countries"><p><span class="label">Border Countries:</span> ${
                             country.borders
                                 ? country.borders.map(border => `<span class="border-country">${border}</span>`).join(' ')
                                 : 'None'
-                        }</p>
+                        }</p></div>
+                    </div>
+                    <div>
+                        <p><span class="label">Top Level Domain:</span> <span class="content">${country.tld[0]}</span></p>
+                        <p><span class="label">Currencies:</span> <span class="content">${currencyName}</span></p>
+                        <p><span class="label">Languages:</span> <span class="content">${countryLanguage}</span></p>
+                    </div>
                     </div>
                 `;
             

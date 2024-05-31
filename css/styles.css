@@ -198,12 +198,6 @@ body.dark .country-element {
     padding: 10px auto;
 }
 
-.country-flag {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
 .country:hover {
     transform: scale(1.05);
 }
@@ -220,29 +214,17 @@ body.dark .country-element {
 /* Show display style */
 
 .country-detail {
-    padding: 10px;
-    /* border: 1px solid var(--card-border); */
-    /* background-color: var(--card-bg); */
-    color: var(--card-color);
-    /* border-radius: 5px; */
-    /* max-width: 600px; */
-    /* margin: 20px auto; */
-    /* text-align: center; */
-}
-
-.country-detail {
     padding: 0 10%;
-    gap: 30px;
+    color: var(--card-color);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
-.country-detail img {
-    /* max-width: 100%; */
-    border-radius: 5px;
-    /* margin-bottom: 20px; */
-    display: flex;
-    align-self: start;
+.left-column img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .country-detail button {
@@ -275,19 +257,14 @@ body.dark .country-element {
     margin-right: 8px;
 }
 
-.country-detail {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 80px;
-    max-height: 100vh;
-}
-
 .left-column,
 .right-column {
     flex: 1;
     /* padding: 10px; */
+}
+
+.left-column img {
+    border-radius: 0;
 }
 
 .left-column {
@@ -303,6 +280,7 @@ body.dark .country-element {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 8px 0;
 }
 
 .right-column h2 {
@@ -320,7 +298,6 @@ body.dark .country-element {
     background-color: #fff;
     border-radius: 3px;
     padding: 8px 20px;
-    /* border: 1px solid red; */
     box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
@@ -339,6 +316,8 @@ body.dark #back {
     font-weight: bold;
     margin-right: 5px;
     font-size: 12px;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 .right-column .label {
@@ -347,5 +326,20 @@ body.dark #back {
 }
 
 .right-column .content {
-    font-size: 14px;
+    font-size: 12px;
+}
+
+.right-column p {
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.border-countries {
+    margin-top: 40px;
+}
+
+.right-column-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
