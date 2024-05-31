@@ -407,4 +407,20 @@ body.dark #back {
         margin: 10px 0;
         padding: 0 10px;
     }
+    #country-list {
+        display: flex;
+        flex-direction: column;
+        /* min-width: 100%; */
+        align-content: center;
+        /* align-items: stretch; */
+        /* width: 1500px; */
+        margin: 0 20px;
+    }
+    #country-list img {
+        width: 100%;
+    }
+    .country-element {
+        /* background-color: red; */
+        min-width: 100vw;
+    }
 }
