@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     countryElement.classList.add('country');
                     countryElement.classList.add('country-element')
-                        // countryElement.style.backgroundImage = `url(${country.flags.png})`;
                     countryElement.innerHTML = `
             <img src="${country.flags.png}" alt="Flag of ${country.name.common}" class="country-flag">
                 <h2>${country.name.common}</h2>

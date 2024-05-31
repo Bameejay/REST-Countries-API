@@ -152,7 +152,6 @@ body.dark #search {
 
 .search-input:focus {
     outline: none;
-    /* box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); */
 }
 
 
@@ -162,9 +161,7 @@ body.dark #search {
     max-width: 20%;
     background-color: #fff;
     flex: 1;
-    /* Allow cards to grow and shrink */
     min-width: calc(25% - 24px);
-    /* Ensure cards take up roughly a quarter of the row minus the gap */
     max-width: calc(25% - 24px);
     margin: 20px 0;
     border-radius: 6px;
@@ -186,15 +183,10 @@ body.dark .country-element {
 }
 
 #country-list {
-    /* display: flex;
-    flex-wrap: wrap;
-    gap: 24px; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    /* Distribute cards evenly with space between */
     gap: 24px;
-    /* Adjust the gap between cards as needed */
     padding: 10px auto;
 }
 
@@ -207,7 +199,6 @@ body.dark .country-element {
     border-radius: 5px;
     font-size: 14px;
     padding: 0 10px;
-    /* align-items: start; */
 }
 
 
@@ -260,7 +251,7 @@ body.dark .country-element {
 .left-column,
 .right-column {
     flex: 1;
-    /* padding: 10px; */
+    padding: 10px;
 }
 
 .left-column img {
@@ -370,18 +361,19 @@ body.dark #back {
     #country-list {
         display: flex;
         flex-direction: column;
-        /* min-width: 100%; */
         align-content: center;
-        /* align-items: stretch; */
-        /* width: 1500px; */
         margin: 0 20px;
     }
     #country-list img {
         width: 100%;
     }
     .country-element {
-        /* background-color: red; */
         min-width: 100vw;
+    }
+    #theme-switcher {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 
@@ -401,7 +393,6 @@ body.dark #back {
     }
     #country-list {
         grid-template-columns: 1fr;
-        /* padding: 0 10px; */
     }
     .country-element {
         margin: 10px 0;
@@ -410,17 +401,18 @@ body.dark #back {
     #country-list {
         display: flex;
         flex-direction: column;
-        /* min-width: 100%; */
         align-content: center;
-        /* align-items: stretch; */
-        /* width: 1500px; */
         margin: 0 20px;
     }
     #country-list img {
         width: 100%;
     }
     .country-element {
-        /* background-color: red; */
         min-width: 100vw;
+    }
+    #theme-switcher {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
