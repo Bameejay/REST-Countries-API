@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 countryList.innerHTML = '';
                 countries.forEach(country => {
                     const countryElement = document.createElement('div');
+
                     countryElement.classList.add('country');
                     countryElement.classList.add('country-element')
                         // countryElement.style.backgroundImage = `url(${country.flags.png})`;
