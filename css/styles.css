@@ -370,11 +370,11 @@ body.dark #back {
     .country-element {
         min-width: 100vw;
     }
-    #theme-switcher {
+    /* #theme-switcher {
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
+    } */
 }
 
 @media (max-width: 480px) {
@@ -410,9 +410,9 @@ body.dark #back {
     .country-element {
         min-width: 100vw;
     }
-    #theme-switcher {
+    /* #theme-switcher {
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
+    } */
 }
